@@ -21,6 +21,7 @@ BuildRequires: dbus-glib-devel
 BuildRequires: libtelepathy-devel
 BuildRequires: chrpath
 BuildRequires: libxslt-proc
+BuildRequires: pkgconfig(gconf-2.0) 
 Requires:	telepathy-filesystem
 
 %description
