@@ -20,6 +20,7 @@ BuildRequires: glib2-devel
 BuildRequires: dbus-glib-devel
 BuildRequires: libtelepathy-devel
 BuildRequires: chrpath
+BuildRequires: libxslt-proc
 Requires:	telepathy-filesystem
 
 %description
