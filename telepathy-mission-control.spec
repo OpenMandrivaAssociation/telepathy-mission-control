@@ -3,18 +3,14 @@
 %define libname_devel %mklibname -d missioncontrol 0
 
 Name:           telepathy-mission-control
-Version:        4.22
+Version:        4.25
 Release:        %mkrel 1
-Summary:        TODO
+Summary:        Telepathy component managing connection managers
 Group:          Networking/Instant messaging
 License:        LGPL
 URL:            http://mission-control.sourceforge.net/
 Source0:        %{name}-%{version}.tar.bz2
-# stolen from debian, related to 
-# http://sourceforge.net/tracker/index.php?func=detail&aid=1718949&group_id=190214&atid=932444
-Patch0:         00_size_t_vs_guint.patch 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
-# TODO
 BuildRequires: pkgconfig
 BuildRequires: glib2-devel
 BuildRequires: dbus-glib-devel
@@ -48,7 +44,6 @@ Run time library for telepathy-mission-control
 
 %prep
 %setup -q
-%patch -p0
 
 %build
 %configure 
