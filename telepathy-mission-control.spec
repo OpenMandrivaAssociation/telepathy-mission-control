@@ -1,9 +1,9 @@
 
 %define libname %mklibname missioncontrol 0
-%define libname_devel %mklibname -d missioncontrol 0
+%define libname_devel %mklibname -d missioncontrol
 
 Name:           telepathy-mission-control
-Version:        4.28
+Version:        4.30
 Release:        %mkrel 1
 Summary:        Telepathy component managing connection managers
 Group:          Networking/Instant messaging
@@ -32,6 +32,8 @@ Summary: Development library for telepathy-mission-control
 Requires:      %libname = %version
 Group:         Development/C
 Provides:      %{name}-devel
+Obsoletes:	%libname-devel
+
 %description -n %libname_devel
 Development library for telepathy-mission-control
 
