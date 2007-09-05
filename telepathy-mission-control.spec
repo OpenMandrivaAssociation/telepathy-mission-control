@@ -3,7 +3,7 @@
 %define libname_devel %mklibname -d missioncontrol
 
 Name:           telepathy-mission-control
-Version:        4.33
+Version:        4.37
 Release:        %mkrel 1
 Summary:        Telepathy component managing connection managers
 Group:          Networking/Instant messaging
@@ -61,13 +61,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%doc AUTHORS README INSTALL COPYING NEWS
+%doc AUTHORS INSTALL COPYING 
 %{_bindir}/*
 %{_datadir}/dbus-1/services/*.service
 
 %files -n %libname 
 %defattr(-,root,root,-)
 %{_libdir}/*.so.0*
+%{_libdir}/*.so.1*
 
 %post -n %{libname}
 /sbin/ldconfig
