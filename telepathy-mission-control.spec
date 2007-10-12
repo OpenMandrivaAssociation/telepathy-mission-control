@@ -3,7 +3,7 @@
 %define libname_devel %mklibname -d missioncontrol
 
 Name:           telepathy-mission-control
-Version:        4.37
+Version:        4.42
 Release:        %mkrel 1
 Summary:        Telepathy component managing connection managers
 Group:          Networking/Instant messaging
@@ -17,14 +17,14 @@ BuildRequires: dbus-glib-devel
 BuildRequires: libtelepathy-devel
 BuildRequires: chrpath
 BuildRequires: libxslt-proc
-BuildRequires: pkgconfig(gconf-2.0) 
+BuildRequires: pkgconfig(gconf-2.0)
 Requires:	telepathy-filesystem
 
 %description
-Mission Control, or MC, is a Telepathy component providing a way for "end-user" 
-applications to abstract some of the details of connection managers, to provide 
-a simple way to manipulate a bunch of connection managers at once, and to 
-remove the need to have in each program the account definitions 
+Mission Control, or MC, is a Telepathy component providing a way for "end-user"
+applications to abstract some of the details of connection managers, to provide
+a simple way to manipulate a bunch of connection managers at once, and to
+remove the need to have in each program the account definitions
 and credentials.
 
 %package -n %libname_devel
@@ -48,7 +48,7 @@ Run time library for telepathy-mission-control
 %setup -q
 
 %build
-%configure 
+%configure
 %make
 
 %install
@@ -61,11 +61,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%doc AUTHORS INSTALL COPYING 
+%doc AUTHORS INSTALL COPYING
 %{_bindir}/*
 %{_datadir}/dbus-1/services/*.service
 
-%files -n %libname 
+%files -n %libname
 %defattr(-,root,root,-)
 %{_libdir}/*.so.0*
 %{_libdir}/*.so.1*
@@ -76,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %postun -n %{libname}
 /sbin/ldconfig
 
-%files -n %libname_devel 
+%files -n %libname_devel
 %defattr(-,root,root,-)
 %{_datadir}/gtk-doc/html/
 %{_includedir}/*
