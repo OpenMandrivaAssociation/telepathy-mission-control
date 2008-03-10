@@ -18,6 +18,7 @@ BuildRequires: libtelepathy-devel
 BuildRequires: chrpath
 BuildRequires: libxslt-proc
 BuildRequires: libGConf2-devel
+BuildRequires: python
 Requires:	telepathy-filesystem
 
 %description
