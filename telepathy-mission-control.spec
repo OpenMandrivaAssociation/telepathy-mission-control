@@ -62,7 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%doc AUTHORS INSTALL COPYING
+%doc AUTHORS 
 %{_bindir}/*
 %{_datadir}/dbus-1/services/*.service
 %{_libdir}/mission-control
