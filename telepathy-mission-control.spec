@@ -4,7 +4,7 @@
 
 Name:           telepathy-mission-control
 Version:        4.65
-Release:        %mkrel 1
+Release:        %mkrel 2
 Summary:        Telepathy component managing connection managers
 Group:          Networking/Instant messaging
 License:        LGPLv2+
@@ -19,7 +19,8 @@ BuildRequires: chrpath
 BuildRequires: libxslt-proc
 BuildRequires: libGConf2-devel
 BuildRequires: python
-Requires:	telepathy-filesystem
+BuildRequires: libgnome-keyring-devel
+Requires:      telepathy-filesystem
 
 %description
 Mission Control, or MC, is a Telepathy component providing a way for "end-user"
