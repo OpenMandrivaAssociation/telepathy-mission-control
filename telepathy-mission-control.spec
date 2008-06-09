@@ -74,11 +74,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*.so.1*
 %{_libdir}/*.so.5*
 
-%post -n %{libname}
-/sbin/ldconfig
+%post -n %{libname} -p /sbin/ldconfig
 
-%postun -n %{libname}
-/sbin/ldconfig
+%postun -n %{libname} -p /sbin/ldconfig
 
 %files -n %libname_devel
 %defattr(-,root,root,-)
