@@ -53,7 +53,7 @@ Run time library for telepathy-mission-control
 %patch0 -p1 -b .dispose
 
 %build
-%configure
+%configure2_5x
 %make
 
 %install
