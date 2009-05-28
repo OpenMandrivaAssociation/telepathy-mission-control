@@ -4,12 +4,14 @@
 
 Name:           telepathy-mission-control
 Version:        4.67
-Release:        %mkrel 1
+Release:        %mkrel 2
 Summary:        Telepathy component managing connection managers
 Group:          Networking/Instant messaging
 License:        LGPLv2+
 URL:            http://mission-control.sourceforge.net/
 Source0:        %{name}-%{version}.tar.gz
+# Debian/upstream patch
+Patch0:		0003-Don-t-close-channels-on-dispose.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires: pkgconfig
 BuildRequires: glib2-devel
@@ -48,6 +50,7 @@ Run time library for telepathy-mission-control
 
 %prep
 %setup -q
+%patch0 -p1 -b .dispose
 
 %build
 %configure
