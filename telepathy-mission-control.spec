@@ -1,20 +1,16 @@
 
-%define libname %mklibname missioncontrol 0
+%define libname %mklibname missioncontrol %version
 %define libname_devel %mklibname -d missioncontrol
 
 Name:           telepathy-mission-control
-Version:        4.67
-Release:        %mkrel 2
+Version:        5.2.0
+Release:        %mkrel 1
 Summary:        Telepathy component managing connection managers
 Group:          Networking/Instant messaging
 License:        LGPLv2+
 URL:            http://mission-control.sourceforge.net/
-Source0:        %{name}-%{version}.tar.gz
-# Debian/upstream patch
-Patch0:		0003-Don-t-close-channels-on-dispose.patch
+Source0:        http://telepathy.freedesktop.org/releases/telepathy-mission-control/%{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
-BuildRequires: pkgconfig
-BuildRequires: glib2-devel
 BuildRequires: dbus-glib-devel
 BuildRequires: libtelepathy-devel
 BuildRequires: chrpath
@@ -36,7 +32,6 @@ Summary: Development library for telepathy-mission-control
 Requires:      %libname = %version
 Group:         Development/C
 Provides:      %{name}-devel
-Obsoletes:	%libname-devel
 
 %description -n %libname_devel
 Development library for telepathy-mission-control
@@ -50,7 +45,6 @@ Run time library for telepathy-mission-control
 
 %prep
 %setup -q
-%patch0 -p1 -b .dispose
 
 %build
 %configure2_5x
@@ -58,9 +52,9 @@ Run time library for telepathy-mission-control
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make install DESTDIR=$RPM_BUILD_ROOT
+%makeinstall_std
 chrpath -d $RPM_BUILD_ROOT/%{_bindir}/*
-chrpath -d $RPM_BUILD_ROOT/%{_libdir}/*.so.0*
+chrpath -d $RPM_BUILD_ROOT/%{_libdir}/*.so
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -69,19 +63,16 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS 
 %{_bindir}/*
 %{_datadir}/dbus-1/services/*.service
-%{_libdir}/mission-control
+%{_libexecdir}/mission-control-5
+%_mandir/man1/*
+%_mandir/man8/*
 
 %files -n %libname
 %defattr(-,root,root,-)
-%{_libdir}/*.so.0*
-%{_libdir}/*.so.1*
-%{_libdir}/*.so.5*
+%{_libdir}/libmcclient-%version.so
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
 %postun -n %{libname} -p /sbin/ldconfig
 %endif
 
@@ -90,6 +81,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/gtk-doc/html/
 %{_includedir}/*
 %{_libdir}/*.a
-%{_libdir}/*.so
+%{_libdir}/libmcclient.so
 %{_libdir}/*.la
 %{_libdir}/pkgconfig/*pc
