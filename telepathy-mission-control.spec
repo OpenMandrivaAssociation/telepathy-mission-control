@@ -3,7 +3,7 @@
 %define libname_devel %mklibname -d missioncontrol
 
 Name:           telepathy-mission-control
-Version:        5.2.3
+Version:        5.3.0
 Release:        %mkrel 1
 Summary:        Telepathy component managing connection managers
 Group:          Networking/Instant messaging
@@ -47,7 +47,7 @@ Run time library for telepathy-mission-control
 %setup -q
 
 %build
-%configure2_5x
+%configure2_5x --enable-gnome-keyring=yes
 %make
 
 %install
