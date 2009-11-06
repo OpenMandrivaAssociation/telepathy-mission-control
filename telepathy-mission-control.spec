@@ -3,7 +3,7 @@
 %define libname_devel %mklibname -d missioncontrol
 
 Name:           telepathy-mission-control
-Version:        5.3.1
+Version:        5.3.2
 Release:        %mkrel 1
 Summary:        Telepathy component managing connection managers
 Group:          Networking/Instant messaging
@@ -12,7 +12,7 @@ URL:            http://mission-control.sourceforge.net/
 Source0:        http://telepathy.freedesktop.org/releases/telepathy-mission-control/%{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires: dbus-glib-devel
-BuildRequires: libtelepathy-devel
+BuildRequires: libtelepathy-glib-devel
 BuildRequires: chrpath
 BuildRequires: libxslt-proc
 BuildRequires: libGConf2-devel
