@@ -1,10 +1,10 @@
-
-%define libname %mklibname missioncontrol %version
-%define libname_devel %mklibname -d missioncontrol
+%define major 0
+%define libname %mklibname mission-control-plugins %major
+%define libname_devel %mklibname -d mission-control-plugins
 
 Name:           telepathy-mission-control
-Version:        5.4.0
-Release:        %mkrel 2
+Version:        5.6.0
+Release:        %mkrel 1
 Summary:        Telepathy component managing connection managers
 Group:          Networking/Instant messaging
 License:        LGPLv2+
@@ -31,7 +31,8 @@ and credentials.
 Summary: Development library for telepathy-mission-control
 Requires:      %libname = %version
 Group:         Development/C
-Provides:      %{name}-devel
+Provides:      %{name}-devel = %version-%release
+Obsoletes:     %{_lib}missioncontrol-devel < 5.6.0
 
 %description -n %libname_devel
 Development library for telepathy-mission-control
@@ -39,22 +40,22 @@ Development library for telepathy-mission-control
 %package -n %libname
 Summary: Run time library for telepathy-mission-control
 Group:   System/Libraries
+Obsoletes: %{_lib}missioncontrol5.4.0 < 5.6.0
+
 %description -n %libname
 Run time library for telepathy-mission-control
-
 
 %prep
 %setup -q
 
 %build
-%configure2_5x --enable-gnome-keyring=yes
+%configure2_5x --enable-gnome-keyring=yes --disable-static
 %make
 
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
-chrpath -d $RPM_BUILD_ROOT/%{_bindir}/*
-chrpath -d $RPM_BUILD_ROOT/%{_libdir}/*.so
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -69,7 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %libname
 %defattr(-,root,root,-)
-%{_libdir}/libmcclient-%version.so
+%{_libdir}/*.so.%{major}*
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
@@ -80,7 +81,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %{_datadir}/gtk-doc/html/
 %{_includedir}/*
-%{_libdir}/*.a
-%{_libdir}/libmcclient.so
+%{_libdir}/*.so
 %{_libdir}/*.la
 %{_libdir}/pkgconfig/*pc
