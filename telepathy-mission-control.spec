@@ -3,13 +3,14 @@
 %define libname_devel %mklibname -d mission-control-plugins
 
 Name:           telepathy-mission-control
-Version:        5.7.9
+Version:        5.7.11
 Release:        %mkrel 1
 Summary:        Telepathy component managing connection managers
 Group:          Networking/Instant messaging
 License:        LGPLv2+
 URL:            http://mission-control.sourceforge.net/
 Source0:        http://telepathy.freedesktop.org/releases/telepathy-mission-control/%{name}-%{version}.tar.gz
+Patch0: telepathy-mission-control-5.7.11-fix-linking.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires: dbus-glib-devel
 BuildRequires: libtelepathy-glib-devel
@@ -47,6 +48,8 @@ Run time library for telepathy-mission-control
 
 %prep
 %setup -q
+%apply_patches
+autoreconf
 
 %build
 %configure2_5x --enable-gnome-keyring=yes --disable-static
