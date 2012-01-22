@@ -49,7 +49,6 @@ Development library for telepathy-mission-control
 %prep
 %setup -q
 %apply_patches
-autoreconf
 
 %build
 %configure2_5x \
@@ -65,6 +64,7 @@ rm -rf %{buildroot}
 %files
 %doc AUTHORS 
 %{_bindir}/*
+%{_datadir}/glib-2.0/schemas/im.telepathy.MissionControl.FromEmpathy.gschema.xml
 %{_datadir}/dbus-1/services/*.service
 %{_libexecdir}/mission-control-5
 %{_mandir}/man1/*
