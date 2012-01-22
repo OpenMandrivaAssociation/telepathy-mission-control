@@ -12,6 +12,7 @@ URL:            http://mission-control.sourceforge.net/
 Source0:        http://telepathy.freedesktop.org/releases/telepathy-mission-control/%{name}-%{version}.tar.gz
 
 BuildRequires: chrpath
+BuildRequires: glib2.0-common
 BuildRequires: python
 BuildRequires: xsltproc
 BuildRequires: pkgconfig(dbus-glib-1)
