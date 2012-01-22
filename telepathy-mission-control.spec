@@ -13,11 +13,12 @@ Source0:        http://telepathy.freedesktop.org/releases/telepathy-mission-cont
 
 BuildRequires: chrpath
 BuildRequires: python
-BuildRequires: dbus-glib-devel
-BuildRequires: libtelepathy-glib-devel
-BuildRequires: libxslt-proc
-BuildRequires: libGConf2-devel
-BuildRequires: libgnome-keyring-devel
+BuildRequires: xsltproc
+BuildRequires: pkgconfig(dbus-glib-1)
+BuildRequires: pkgconfig(glib-2.0)
+BuildRequires: pkgconfig(gnome-keyring-1)
+BuildRequires: pkgconfig(telepathy-glib)
+
 Requires:      telepathy-filesystem
 
 %description
