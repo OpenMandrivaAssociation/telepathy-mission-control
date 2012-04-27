@@ -3,7 +3,7 @@
 %define develname %mklibname -d mission-control-plugins
 
 Name:           telepathy-mission-control
-Version:        5.10.1
+Version:        5.12.0
 Release:        1
 Summary:        Telepathy component managing connection managers
 Group:          Networking/Instant messaging
@@ -18,7 +18,7 @@ BuildRequires: xsltproc
 BuildRequires: pkgconfig(dbus-glib-1)
 BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(gnome-keyring-1)
-BuildRequires: pkgconfig(telepathy-glib)
+BuildRequires: pkgconfig(telepathy-glib) => 0.17.5
 
 Requires:      telepathy-filesystem
 
@@ -59,7 +59,6 @@ Development library for telepathy-mission-control
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 %files
@@ -79,4 +78,3 @@ rm -rf %{buildroot}
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*pc
-
