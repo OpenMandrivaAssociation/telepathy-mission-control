@@ -3,7 +3,7 @@
 %define develname %mklibname -d mission-control-plugins
 
 Name:           telepathy-mission-control
-Version:        5.12.3
+Version:        5.14.0
 Release:        1
 Summary:        Telepathy component managing connection managers
 Group:          Networking/Instant messaging
