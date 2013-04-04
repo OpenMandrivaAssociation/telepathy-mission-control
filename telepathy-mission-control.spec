@@ -1,6 +1,7 @@
 %define major 0
 %define libname %mklibname mission-control-plugins %major
 %define develname %mklibname -d mission-control-plugins
+%define _disable_ld_no_undefined 1
 
 Name:           telepathy-mission-control
 Version:        5.14.0
