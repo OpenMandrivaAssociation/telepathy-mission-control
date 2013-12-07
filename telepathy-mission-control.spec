@@ -5,7 +5,7 @@
 
 Name:           telepathy-mission-control
 Version:        5.14.0
-Release:        3
+Release:        4
 Summary:        Telepathy component managing connection managers
 Group:          Networking/Instant messaging
 License:        LGPLv2+
