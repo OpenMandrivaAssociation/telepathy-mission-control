@@ -18,7 +18,6 @@ BuildRequires: python2
 BuildRequires: xsltproc
 BuildRequires: pkgconfig(dbus-glib-1)
 BuildRequires: pkgconfig(glib-2.0)
-BuildRequires: pkgconfig(gnome-keyring-1)
 BuildRequires: pkgconfig(telepathy-glib) => 0.17.5
 
 Requires:      telepathy-filesystem
