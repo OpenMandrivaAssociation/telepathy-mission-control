@@ -4,8 +4,8 @@
 %define _disable_ld_no_undefined 1
 
 Name:           telepathy-mission-control
-Version:        5.14.0
-Release:        7
+Version:        5.16.3
+Release:        1
 Summary:        Telepathy component managing connection managers
 Group:          Networking/Instant messaging
 License:        LGPLv2+
@@ -14,7 +14,7 @@ Source0:        http://telepathy.freedesktop.org/releases/telepathy-mission-cont
 
 BuildRequires: chrpath
 BuildRequires: glib2.0-common
-BuildRequires: python
+BuildRequires: python2
 BuildRequires: xsltproc
 BuildRequires: pkgconfig(dbus-glib-1)
 BuildRequires: pkgconfig(glib-2.0)
@@ -53,9 +53,9 @@ Development library for telepathy-mission-control
 %apply_patches
 
 %build
-%configure2_5x \
-	--enable-gnome-keyring=yes \
-	--disable-static
+export PYTHON=%__python2
+%configure \
+	--disable-upower
 
 %make
 
