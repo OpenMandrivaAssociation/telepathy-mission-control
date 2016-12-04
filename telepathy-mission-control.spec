@@ -3,24 +3,24 @@
 %define develname %mklibname -d mission-control-plugins
 %define _disable_ld_no_undefined 1
 
-Name:           telepathy-mission-control
-Version:        5.16.3
-Release:        4
-Summary:        Telepathy component managing connection managers
-Group:          Networking/Instant messaging
-License:        LGPLv2+
-URL:            http://mission-control.sourceforge.net/
-Source0:        http://telepathy.freedesktop.org/releases/telepathy-mission-control/%{name}-%{version}.tar.gz
+Name:		telepathy-mission-control
+Version:	5.16.4
+Release:	1
+Summary:	Telepathy component managing connection managers
+Group:		Networking/Instant messaging
+License:	LGPLv2+
+URL:		http://mission-control.sourceforge.net/
+Source0:	http://telepathy.freedesktop.org/releases/telepathy-mission-control/%{name}-%{version}.tar.gz
 
-BuildRequires: chrpath
-BuildRequires: glib2.0-common
-BuildRequires: python2
-BuildRequires: xsltproc
-BuildRequires: pkgconfig(dbus-glib-1)
-BuildRequires: pkgconfig(glib-2.0)
-BuildRequires: pkgconfig(telepathy-glib) => 0.17.5
+BuildRequires:	chrpath
+BuildRequires:	glib2.0-common
+BuildRequires:	python2
+BuildRequires:	xsltproc
+BuildRequires:	pkgconfig(dbus-glib-1)
+BuildRequires:	pkgconfig(glib-2.0)
+BuildRequires:	pkgconfig(telepathy-glib) => 0.17.5
 
-Requires:      telepathy-filesystem
+Requires:	telepathy-filesystem
 
 %description
 Mission Control, or MC, is a Telepathy component providing a way for "end-user"
@@ -30,29 +30,29 @@ remove the need to have in each program the account definitions
 and credentials.
 
 %package -n %{libname}
-Summary: Run time library for telepathy-mission-control
-Group:   System/Libraries
-Obsoletes: %{_lib}missioncontrol5.4.0 < 5.6.0
+Summary:	Run time library for telepathy-mission-control
+Group:		System/Libraries
+Obsoletes:	%{_lib}missioncontrol5.4.0 < 5.6.0
 
 %description -n %{libname}
-Run time library for telepathy-mission-control
+Run time library for telepathy-mission-control.
 
 %package -n %{develname}
-Summary: Development library for telepathy-mission-control
+Summary:	Development library for telepathy-mission-control
 Group:		Development/C
 Requires:	%{libname} = %{version}
 Provides:	%{name}-devel = %{version}-%{release}
 Obsoletes:	%{_lib}missioncontrol-devel < 5.6.0
 
 %description -n %{develname}
-Development library for telepathy-mission-control
+Development library for telepathy-mission-control.
 
 %prep
 %setup -q
 %apply_patches
 
 %build
-export PYTHON=%__python2
+export PYTHON=%{__python2}
 %configure \
 	--disable-upower
 
@@ -62,7 +62,6 @@ export PYTHON=%__python2
 %makeinstall_std
 
 %files
-%doc AUTHORS 
 %{_bindir}/*
 %{_datadir}/glib-2.0/schemas/im.telepathy.MissionControl.FromEmpathy.gschema.xml
 %{_datadir}/dbus-1/services/*.service
@@ -74,6 +73,7 @@ export PYTHON=%__python2
 %{_libdir}/*.so.%{major}*
 
 %files -n %{develname}
+%doc AUTHORS
 %{_datadir}/gtk-doc/html/
 %{_includedir}/*
 %{_libdir}/*.so
