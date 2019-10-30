@@ -4,8 +4,8 @@
 %define _disable_ld_no_undefined 1
 
 Name:		telepathy-mission-control
-Version:	5.16.4
-Release:	4
+Version:	5.16.5
+Release:	1
 Summary:	Telepathy component managing connection managers
 Group:		Networking/Instant messaging
 License:	LGPLv2+
