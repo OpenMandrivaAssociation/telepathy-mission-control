@@ -5,7 +5,7 @@
 
 Name:		telepathy-mission-control
 Version:	5.16.5
-Release:	1
+Release:	2
 Summary:	Telepathy component managing connection managers
 Group:		Networking/Instant messaging
 License:	LGPLv2+
@@ -19,7 +19,7 @@ BuildRequires:	xsltproc
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(telepathy-glib) => 0.17.5
-
+BuildRequires:	pkgconfig(libnm)
 Requires:	telepathy-filesystem
 
 %description
@@ -48,18 +48,17 @@ Obsoletes:	%{_lib}missioncontrol-devel < 5.6.0
 Development library for telepathy-mission-control.
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
 export PYTHON=%{__python2}
 %configure \
 	--disable-upower
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %{_bindir}/*
