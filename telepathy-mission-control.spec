@@ -4,17 +4,15 @@
 %define _disable_ld_no_undefined 1
 
 Name:		telepathy-mission-control
-Version:	5.16.5
-Release:	3
+Version:	5.16.6
+Release:	1
 Summary:	Telepathy component managing connection managers
 Group:		Networking/Instant messaging
 License:	LGPLv2+
 URL:		http://mission-control.sourceforge.net/
 Source0:	http://telepathy.freedesktop.org/releases/telepathy-mission-control/%{name}-%{version}.tar.gz
-Patch0:		https://github.com/TelepathyIM/telepathy-mission-control/pull/6.patch
 BuildRequires:	chrpath
 BuildRequires:	glib2.0-common
-BuildRequires:	python2
 BuildRequires:	xsltproc
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(glib-2.0)
