@@ -11,6 +11,11 @@ Group:		Networking/Instant messaging
 License:	LGPLv2+
 URL:		https://mission-control.sourceforge.net/
 Source0:	http://telepathy.freedesktop.org/releases/telepathy-mission-control/%{name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	chrpath
 BuildRequires:	glib2.0-common
 BuildRequires:	xsltproc
